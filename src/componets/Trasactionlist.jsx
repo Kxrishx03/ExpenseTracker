@@ -8,17 +8,15 @@ export function Trasactionlist(){
    const handleDelete = (id) => {
        setTransactions(deleteTransaction(id));
    };
-
-   const sign = transactions.amount<0?'-':'+';
-   
-    
+ 
     return (
        <>
         <h3>History</h3>
         <ul className="list">
         {transactions.map(t=>(
+           
          <li className={t.amount<0 ?'minus':'plus'}>
-        {t.text}<span>{sign}₹{Math.abs(t.amount)}</span><button onClick={() => handleDelete(t.id)} className="delete-btn">x</button>
+        {t.text}<span>{t.amount<0?'-':'+'}₹{Math.abs(t.amount)}</span><button onClick={() => handleDelete(t.id)} className="delete-btn">x</button>
         </li>
         ))}
         </ul>
