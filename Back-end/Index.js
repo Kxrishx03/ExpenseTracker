@@ -1,4 +1,4 @@
-const express = require(express);
+const express = require("express");
 const { createTransaction } = require("./types");
 const cors = require("cors");
 const app = express();
@@ -15,6 +15,7 @@ app.use(cors({
 
 app.get('/transaction', async (req,res)=>{
     const Transactions =  await Transaction.find();
+    console.log(Transactions);
     res.status(200).json(Transactions);
 });
 
@@ -36,5 +37,5 @@ app.post('/transactions', async (req,res)=>{
 })
 
 app.listen(port,()=>{
-    console.log("Running on  " + port);
-})
+    console.log("RUNNING");
+});
